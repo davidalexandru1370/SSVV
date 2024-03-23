@@ -44,9 +44,9 @@ public class AppTest extends TestCase {
 
     public void testAddStudent_correctInput_shouldReturnAddedStudent() {
         var addedStudent = new Student(String.valueOf(Math.random() * 100000000), "John", 933, "david@gmail.com");
-        String filenameStudent = "../fisiere/Studenti.xml";
-        String filenameTema = "../fisiere/Teme.xml";
-        String filenameNota = "../fisiere/Note.xml";
+        String filenameStudent = "./fisiere/Studenti.xml";
+        String filenameTema = "./fisiere/Teme.xml";
+        String filenameNota = "./fisiere/Note.xml";
 
         StudentValidator studentValidator = new StudentValidator();
         TemaValidator temaValidator = new TemaValidator();
@@ -63,9 +63,9 @@ public class AppTest extends TestCase {
 
     public void testAddStudent_invalidInput_shouldThrowValidationException() {
         var addedStudent = new Student(String.valueOf(Math.random() * 100000000), "John", 933, "david@gmail.com");
-        String filenameStudent = "../fisiere/Studenti.xml";
-        String filenameTema = "../fisiere/Teme.xml";
-        String filenameNota = "../fisiere/Note.xml";
+        String filenameStudent = "./fisiere/Studenti.xml";
+        String filenameTema = "./fisiere/Teme.xml";
+        String filenameNota = "./fisiere/Note.xml";
 
         StudentValidator studentValidator = new StudentValidator();
         TemaValidator temaValidator = new TemaValidator();
