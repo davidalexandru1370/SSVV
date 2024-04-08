@@ -25,7 +25,18 @@ public class Curent {
      * @return the date when university have started
      */
     public static LocalDate getStartDate() {
-        String filename = "../fisiere/DataInceput.txt";
+        String filename = "fisiere/DataInceput.txt";
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filename))) {
+            String line = bufferedReader.readLine();
+            String[] words = line.split(",");
+            return LocalDate.of(Integer.parseInt(words[0]), Integer.parseInt(words[1]), Integer.parseInt(words[2]));
+        } catch (IOException exception) {
+            throw new ValidationException(exception.getMessage());
+        }
+    }
+
+    public static LocalDate getStartDate(String path){
+        String filename = path;
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filename))) {
             String line = bufferedReader.readLine();
             String[] words = line.split(",");

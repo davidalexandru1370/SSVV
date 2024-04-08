@@ -4,16 +4,14 @@ import org.example.curent.Curent;
 import org.example.domain.Nota;
 import org.example.domain.Student;
 import org.example.domain.Tema;
-
-import org.example.repository.*;
+import org.example.repository.NotaXMLRepo;
+import org.example.repository.StudentXMLRepo;
+import org.example.repository.TemaXMLRepo;
 import org.example.validation.NotaValidator;
 import org.example.validation.StudentValidator;
 import org.example.validation.TemaValidator;
 import org.example.validation.ValidationException;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.time.LocalDate;
 
 import static java.time.temporal.ChronoUnit.DAYS;
@@ -184,17 +182,17 @@ public class Service {
             }
         }
         notaFileRepository.save(nota);
-        String filename = "../fisiere/" + student.getNume() + ".txt";
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filename, true))) {
-            bufferedWriter.write("\nTema: " + tema.getID());
-            bufferedWriter.write("\nNota: " + nota.getNota());
-            bufferedWriter.write("\nPredata in saptamana: " + predare);
-            bufferedWriter.write("\nDeadline: " + tema.getDeadline());
-            bufferedWriter.write("\nFeedback: " + feedback);
-            bufferedWriter.newLine();
-        } catch (IOException exception) {
-            throw new ValidationException(exception.getMessage());
-        }
+//        String filename = "../fisiere/" + student.getNume() + ".txt";
+//        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filename, true))) {
+//            bufferedWriter.write("\nTema: " + tema.getID());
+//            bufferedWriter.write("\nNota: " + nota.getNota());
+//            bufferedWriter.write("\nPredata in saptamana: " + predare);
+//            bufferedWriter.write("\nDeadline: " + tema.getDeadline());
+//            bufferedWriter.write("\nFeedback: " + feedback);
+//            bufferedWriter.newLine();
+//        } catch (IOException exception) {
+//            throw new ValidationException(exception.getMessage());
+//        }
         return nota.getNota();
     }
 
